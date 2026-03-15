@@ -4,7 +4,7 @@ export default function Home() {
   const collections = [
     "Favoritos",
     "Wishlist",
-    "Vender",
+    "Eliminar",
     "Pokémon TCG",
     "Topps",
   ];
@@ -57,7 +57,7 @@ export default function Home() {
           </div>
 
         </aside>
-
+ 
         <section className="space-y-4">
           <div className="rounded-3xl border border-[#00c0f0]/25 bg-[#181818]/95 p-5">
             <h3 className="mb-4 font-[family-name:var(--font-geist-mono)] text-lg font-bold text-white">
