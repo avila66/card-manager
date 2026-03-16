@@ -16,7 +16,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="relative bg-gray-800/50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10">
+    <nav className="relative bg-zinc-900 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-zinc-800">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -25,7 +25,7 @@ export default function Navbar() {
               aria-expanded={mobileOpen}
               aria-controls="mobile-menu"
               onClick={() => setMobileOpen((prev) => !prev)}
-              className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500"
+              className="relative inline-flex items-center justify-center rounded-md border border-zinc-700 p-2 text-zinc-400 hover:bg-zinc-900 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-zinc-500"
             >
               <span className="sr-only">Abrir menu principal</span>
               <svg
@@ -62,7 +62,7 @@ export default function Navbar() {
                 alt="Card Manager"
                 width={28}
                 height={28}
-                className="h-7 w-7 rounded-md border border-white/20 object-cover"
+                className="h-7 w-7 rounded-md border border-zinc-600 object-cover"
               />
               <span className="text-sm font-semibold tracking-wide text-white">Card Manager</span>
             </Link>
@@ -79,10 +79,10 @@ export default function Navbar() {
                       key={item.href}
                       href={item.href}
                       aria-current={isActive ? "page" : undefined}
-                      className={`rounded-md px-3 py-2 text-sm font-medium transition ${
+                      className={`rounded-md border px-3 py-2 text-sm font-medium transition ${
                         isActive
-                          ? "bg-gray-950/50 text-white"
-                          : "text-gray-300 hover:bg-white/5 hover:text-white"
+                          ? "border-zinc-500 bg-zinc-900 text-white"
+                          : "border-zinc-800 text-zinc-300 hover:border-zinc-600 hover:bg-zinc-900 hover:text-white"
                       }`}
                     >
                       {item.label}
@@ -94,19 +94,12 @@ export default function Navbar() {
           </div>
 
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <button
-              type="button"
-              className="relative rounded-full p-1 text-gray-400 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500"
+            <Link
+              href="/ayuda"
+              className="rounded-md border border-zinc-700 px-3 py-2 text-sm font-medium text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-900 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-zinc-500"
             >
-              <span className="sr-only">Ver notificaciones</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true" className="size-6">
-                <path
-                  d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
+              Ayuda
+            </Link>
           </div>
         </div>
       </div>
@@ -124,10 +117,10 @@ export default function Navbar() {
                 href={item.href}
                 aria-current={isActive ? "page" : undefined}
                 onClick={() => setMobileOpen(false)}
-                className={`block rounded-md px-3 py-2 text-base font-medium transition ${
+                className={`block rounded-md border px-3 py-2 text-base font-medium transition ${
                   isActive
-                    ? "bg-gray-950/50 text-white"
-                    : "text-gray-300 hover:bg-white/5 hover:text-white"
+                    ? "border-zinc-500 bg-zinc-900 text-white"
+                    : "border-zinc-800 text-zinc-300 hover:border-zinc-600 hover:bg-zinc-900 hover:text-white"
                 }`}
               >
                 {item.label}

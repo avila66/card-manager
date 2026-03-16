@@ -1,24 +1,16 @@
 import Image from "next/image";
 
 export default function Home() {
-  const collections = [
-    "Favoritos",
-    "Wishlist",
-    "Eliminar",
-    "Pokémon TCG",
-    "Topps",
-  ];
-
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#0b0b0b] text-[#eafaff]">
+    <div className="relative min-h-screen overflow-hidden bg-zinc-900 text-zinc-100">
       <div className="pointer-events-none absolute inset-0 opacity-70">
-        <div className="absolute -top-16 right-1/3 h-72 w-72 rounded-full bg-[#00c0f0]/25 blur-3xl" />
-        <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-[#00b0f0]/20 blur-3xl" />
-        <div className="absolute inset-0 [background:radial-gradient(circle_at_20%_20%,rgba(0,208,240,0.16),transparent_35%),radial-gradient(circle_at_80%_10%,rgba(0,176,240,0.12),transparent_35%),radial-gradient(circle_at_50%_80%,rgba(0,192,240,0.14),transparent_40%)]" />
+        <div className="absolute -top-16 right-1/3 h-72 w-72 rounded-full bg-white/5 blur-3xl" />
+        <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-white/4 blur-3xl" />
+        <div className="absolute inset-0 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.06),transparent_35%),radial-gradient(circle_at_80%_10%,rgba(255,255,255,0.04),transparent_35%),radial-gradient(circle_at_50%_80%,rgba(255,255,255,0.05),transparent_40%)]" />
       </div>
 
       <main className="relative mx-auto grid min-h-screen w-full max-w-[1300px] grid-cols-1 gap-4 px-4 py-4 lg:grid-cols-[280px_minmax(0,1fr)] lg:px-6 lg:py-6">
-        <aside className="rounded-3xl border border-[#00c0f0]/20 bg-[#151515]/95 p-5 shadow-[0_25px_70px_-50px_rgba(0,192,240,0.45)] backdrop-blur">
+        <aside className="rounded-3xl border border-zinc-700 bg-zinc-950/95 p-5 shadow-[0_25px_70px_-50px_rgba(255,255,255,0.12)] backdrop-blur">
           <div className="mb-8 flex items-center gap-3">
             <Image
               src="/CMLogo.jpg"
@@ -26,10 +18,10 @@ export default function Home() {
               width={54}
               height={54}
               priority
-              className="rounded-xl border border-[#00c0f0]/35"
+              className="rounded-xl border border-zinc-600"
             />
             <div>
-              <p className="text-[11px] uppercase tracking-[0.2em] text-[#7edfff]">Card Manager</p>
+              <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-400">Card Manager</p>
               <h1 className="font-[family-name:var(--font-geist-mono)] text-lg font-bold text-white">
                 Panel de control
               </h1>
@@ -37,59 +29,40 @@ export default function Home() {
           </div>
 
           <nav className="space-y-2 text-sm">
-            <button className="w-full rounded-2xl border border-[#00d0f0]/60 bg-gradient-to-r from-[#00d0f0]/30 to-[#00b0f0]/20 px-3 py-2 text-left text-sm font-semibold text-[#dff7ff] shadow-[0_10px_26px_-14px_rgba(0,208,240,0.9)] transition duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#78e4ff]/70">
+            <button className="w-full rounded-2xl border border-zinc-500 bg-zinc-900 px-3 py-2 text-left text-sm font-semibold text-zinc-100 shadow-[0_10px_26px_-14px_rgba(255,255,255,0.18)] transition duration-200 hover:-translate-y-0.5 hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500/70">
               Inicio
             </button>
-            <button className="w-full rounded-2xl border border-[#00c0f0]/12 bg-[#1b1b1b] px-3 py-2 text-left text-sm font-semibold text-[#d8edf2] transition duration-200 hover:-translate-y-0.5 hover:border-[#00d0f0]/50 hover:bg-[#00c0f0]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#78e4ff]/70">
+            <button className="w-full rounded-2xl border border-zinc-700 bg-zinc-900 px-3 py-2 text-left text-sm font-semibold text-zinc-200 transition duration-200 hover:-translate-y-0.5 hover:border-zinc-500 hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500/70">
               Coleccion
             </button>
-            <button className="w-full rounded-2xl border border-[#00c0f0]/12 bg-[#1b1b1b] px-3 py-2 text-left text-sm font-semibold text-[#d8edf2] transition duration-200 hover:-translate-y-0.5 hover:border-[#00d0f0]/50 hover:bg-[#00c0f0]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#78e4ff]/70">
+            <button className="w-full rounded-2xl border border-zinc-700 bg-zinc-900 px-3 py-2 text-left text-sm font-semibold text-zinc-200 transition duration-200 hover:-translate-y-0.5 hover:border-zinc-500 hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500/70">
               Añadir carta
             </button>
-            <button className="w-full rounded-2xl border border-[#00c0f0]/12 bg-[#1b1b1b] px-3 py-2 text-left text-sm font-semibold text-[#d8edf2] transition duration-200 hover:-translate-y-0.5 hover:border-[#00d0f0]/50 hover:bg-[#00c0f0]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#78e4ff]/70">
+            <button className="w-full rounded-2xl border border-zinc-700 bg-zinc-900 px-3 py-2 text-left text-sm font-semibold text-zinc-200 transition duration-200 hover:-translate-y-0.5 hover:border-zinc-500 hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500/70">
               Eliminar carta
             </button>
           </nav>
 
-          <div className="mt-8 rounded-2xl border border-[#00c0f0]/25 bg-[#101010] p-4">
-            <p className="text-xs uppercase tracking-[0.18em] text-[#79dbff]">Total cartas</p>
+          <div className="mt-8 rounded-2xl border border-zinc-700 bg-zinc-900 p-4">
+            <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Total cartas</p>
             <p className="mt-2 font-[family-name:var(--font-geist-mono)] text-4xl font-bold text-white">0</p>
+          </div>
+
+          <div className="mt-4 rounded-2xl border border-zinc-700 bg-zinc-900 p-4">
+            <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Última carta añadida</p>
+            <p className="mt-2 font-[family-name:var(--font-geist-mono)] text-4xl font-bold text-white">N/A</p>
           </div>
 
         </aside>
  
         <section className="space-y-4">
-          <div className="rounded-3xl border border-[#00c0f0]/25 bg-[#181818]/95 p-5">
-            <h3 className="mb-4 font-[family-name:var(--font-geist-mono)] text-lg font-bold text-white">
-              Gestion de cartas
+          <div className="rounded-3xl border border-zinc-700 bg-zinc-950/95 p-5">
+            <h3 className="font-[family-name:var(--font-geist-mono)] text-lg font-bold text-white">
+              Bienvenido a Card Manager!
             </h3>
-            <div className="grid gap-3 sm:grid-cols-2">
-              <button className="rounded-2xl border border-[#00d0f0]/55 bg-gradient-to-r from-[#00d0f0]/25 to-[#00b0f0]/20 px-4 py-4 text-left font-bold text-[#dff7ff] transition hover:-translate-y-0.5 hover:border-[#00d0f0]/80">
-                Añadir carta
-              </button>
-              <button className="rounded-2xl border border-[#00c0f0]/35 bg-[#101010] px-4 py-4 text-left font-bold text-[#c8f2ff] transition hover:-translate-y-0.5 hover:border-[#00d0f0]/65 hover:bg-[#00c0f0]/10">
-                Eliminar carta
-              </button>
-            </div>
-          </div>
-
-          <div className="rounded-3xl border border-[#00c0f0]/25 bg-[#181818]/95 p-5">
-            <div className="mb-4 flex items-center justify-between gap-3">
-              <h3 className="font-[family-name:var(--font-geist-mono)] text-lg font-bold text-white">
-                Colecciones
-              </h3>
-              <button className="rounded-2xl border border-[#00d0f0]/55 bg-gradient-to-r from-[#00d0f0]/25 to-[#00b0f0]/20 px-4 py-2 text-sm font-bold text-[#dff7ff] transition hover:-translate-y-0.5 hover:border-[#00d0f0]/80">
-                Añadir colección
-              </button>
-            </div>
-            
-            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-              {collections.map((collection) => (
-                <div key={collection} className="rounded-2xl border border-[#00c0f0]/20 bg-[#101010] p-4">
-                  <p className="text-sm font-semibold text-[#e4f8ff]">{collection}</p>
-                </div>
-              ))}
-            </div>
+            <p className="mt-2 text-sm text-zinc-300">
+              Con Card Manager, puedes registrar tus colecciones y cartas de una forma cómoda y digital. Organiza tu inventario, controla cambios y mantente al día con tus sets favoritos. ¡Empieza a construir tu colección hoy mismo! Puedes empezar a navegar con la barra de navegación en la parte superior, o usar los botones rapidos para añadir o eliminar cartas.
+            </p>
           </div>
         </section>
       </main>
