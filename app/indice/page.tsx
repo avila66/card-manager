@@ -33,9 +33,6 @@ export default function Home() {
               Inicio
             </button>
             <button className="w-full rounded-2xl border border-zinc-700 bg-zinc-900 px-3 py-2 text-left text-sm font-semibold text-zinc-200 transition duration-200 hover:-translate-y-0.5 hover:border-zinc-500 hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500/70">
-              Coleccion
-            </button>
-            <button className="w-full rounded-2xl border border-zinc-700 bg-zinc-900 px-3 py-2 text-left text-sm font-semibold text-zinc-200 transition duration-200 hover:-translate-y-0.5 hover:border-zinc-500 hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500/70">
               Añadir carta
             </button>
             <button className="w-full rounded-2xl border border-zinc-700 bg-zinc-900 px-3 py-2 text-left text-sm font-semibold text-zinc-200 transition duration-200 hover:-translate-y-0.5 hover:border-zinc-500 hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500/70">

@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const navItems = [
-  { label: "Inicio", href: "/" },
+  { label: "Inicio", href: "/indice" },
   { label: "Colecciones", href: "/colecciones" },
   { label: "Cartas", href: "/cartas" },
 ];
@@ -56,7 +56,7 @@ export default function Navbar() {
           </div>
 
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <Link href="/" className="flex shrink-0 items-center gap-2">
+            <Link href="/indice" className="flex shrink-0 items-center gap-2">
               <Image
                 src="/CMLogo.jpg"
                 alt="Card Manager"
@@ -70,10 +70,7 @@ export default function Navbar() {
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-3">
                 {navItems.map((item) => {
-                  const isActive =
-                    item.href === "/"
-                      ? pathname === "/"
-                      : pathname === item.href || pathname.startsWith(`${item.href}/`);
+                  const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`);
                   return (
                     <Link
                       key={item.href}
@@ -107,10 +104,7 @@ export default function Navbar() {
       <div id="mobile-menu" className={`${mobileOpen ? "block" : "hidden"} sm:hidden`}>
         <div className="space-y-1 px-2 pb-3 pt-2">
           {navItems.map((item) => {
-            const isActive =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname === item.href || pathname.startsWith(`${item.href}/`);
+            const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
               <Link
                 key={item.href}
