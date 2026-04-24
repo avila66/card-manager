@@ -1,10 +1,18 @@
-export async function POST(req){
-    const data = await req.json();
+import supabase from '@/utils/supabase';
 
-    if (true) {
-        return Response.json({mensaje:"OK"});
-    }
-    else {
-        return Response.json({mensaje:"Error"}, {status:400});
-    }
+
+//const pilla el tipo de variable de la 
+export async function POST(req) {
+  const { email, password } = await req.json();
+
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
+
+  if (error) {
+    return Response.json({ mensaje: error.message }, { status: 400 });
+  }
+
+  return Response.json({ mensaje: 'OK', user: data.user });
 }

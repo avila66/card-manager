@@ -51,7 +51,7 @@ export default function Home() {
           </div>
 
         </aside>
- 
+
         <section className="space-y-4">
           <div className="rounded-3xl border border-zinc-700 bg-zinc-950/95 p-5">
             <h3 className="font-[family-name:var(--font-geist-mono)] text-lg font-bold text-white">

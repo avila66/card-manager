@@ -1,33 +1,32 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const footerLinks = [
-  { label: "Inicio", href: "/" },
+  { label: "Inicio", href: "/indice" },
   { label: "Colecciones", href: "/colecciones" },
   { label: "Cartas", href: "/cartas" },
 ];
 
+const hiddenRoutes = ["/login", "/register"];
+
 export default function Footer() {
+  const pathname = usePathname();
+
+  if (hiddenRoutes.includes(pathname)) return null;
+
   return (
     <footer className="flex w-full flex-col items-center justify-around border-t border-white/10 bg-[#0b0b0b] py-16 text-sm text-gray-400">
       <Link href="/" className="flex items-center gap-2">
-        <Image
-          src="/CMLogo.jpg"
-          alt="Card Manager"
-          width={36}
-          height={36}
-          className="rounded-xl border border-white/10 object-cover"
-        />
+        <Image src="/CMLogo.jpg" alt="Card Manager" width={36} height={36} className="rounded-xl border border-white/10 object-cover" />
         <span className="text-base font-semibold text-white">Card Manager</span>
       </Link>
 
       <div className="mt-8 flex flex-wrap items-center justify-center gap-6 sm:gap-8">
         {footerLinks.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className="font-medium text-gray-400 transition-all hover:text-white"
-          >
+          <Link key={item.href} href={item.href} className="font-medium text-gray-400 transition-all hover:text-white">
             {item.label}
           </Link>
         ))}
