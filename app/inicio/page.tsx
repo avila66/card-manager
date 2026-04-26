@@ -27,7 +27,7 @@ export default function InicioPage() {
     },
     {
       title: 'Encuentra lo que tienes',
-      description: 'Busca exactamente las cartas que necesitas sin rebuscar en cajas.',
+      description: 'Busca exactamente las cartas que tienes registradas sin tener que rebuscar en tus cajas.',
       icon: '🔍',
     },
   ];
