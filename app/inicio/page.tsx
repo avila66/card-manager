@@ -17,12 +17,12 @@ export default function InicioPage() {
     },
     {
       title: 'Todos los detalles',
-      description: '¿Cartas duplicadas? Múltiples variantes o condiciones? Lo tenemos cubierto.',
+      description: 'Añade cualquier carta que tengas, con detalles, fotos, y notas personalizadas.',
       icon: '📋',
     },
     {
       title: 'Comparte tu colección',
-      description: 'Muestra tu colección a otros o compara cartas para intercambio.',
+      description: 'Muestra tu colección a otros o compara cartas para poder realizar intercambios.',
       icon: '🔗',
     },
     {
