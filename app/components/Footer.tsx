@@ -10,7 +10,7 @@ const footerLinks = [
   { label: "Cartas", href: "/cartas" },
 ];
 
-const hiddenRoutes = ["/login", "/register"];
+const hiddenRoutes = ["/login", "/register", "/inicio"];
 
 export default function Footer() {
   const pathname = usePathname();

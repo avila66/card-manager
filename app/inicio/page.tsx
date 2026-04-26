@@ -12,7 +12,7 @@ export default function InicioPage() {
   const features = [
     {
       title: 'Seguimiento de progreso',
-      description: 'Mantén easily track of your collection at any size. View your progress for individual sets.',
+      description: 'Mantén un seguimiento de tu progreso en cada set, y en tu colección.',
       icon: '📊',
     },
     {
