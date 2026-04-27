@@ -38,7 +38,8 @@ export default function LoginPage() {
       if (!res.ok) {
         setError(data.mensaje || 'Error al iniciar sesión');
       } else {
-        router.push('/indice');
+        localStorage.setItem('username', data.nombre_usuario);
+        router.push(`/indice/${data.nombre_usuario}`);
       }
     } catch {
       setError('Error al conectar con la API');
