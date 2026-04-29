@@ -39,7 +39,7 @@ export default function LoginPage() {
         setError(data.mensaje || 'Error al iniciar sesión');
       } else {
         localStorage.setItem('username', data.nombre_usuario);
-        router.push(`/indice/${data.nombre_usuario}`);
+        router.push(`/dashboard/${data.nombre_usuario}`);
       }
     } catch {
       setError('Error al conectar con la API');

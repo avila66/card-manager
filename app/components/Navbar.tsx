@@ -19,7 +19,7 @@ export default function Navbar() {
   }, []);
 
   const navItems = [
-    { label: "Inicio", href: `/indice/${username}` },
+    { label: "Inicio", href: `/dashboard/${username}` },
     { label: "Colecciones", href: `/colecciones/${username}` },
     { label: "Cartas", href: `/cartas/${username}` },
   ];
@@ -50,7 +50,7 @@ export default function Navbar() {
           )}
 
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <Link href={isAuthPage ? "/login" : `/indice/${username}`} className="flex shrink-0 items-center gap-2">
+            <Link href={isAuthPage ? "/login" : `/dashboard/${username}`} className="flex shrink-0 items-center gap-2">
               <Image src="/CMLogo.jpg" alt="Card Manager" width={28} height={28} className="h-7 w-7 rounded-md border border-zinc-600 object-cover" />
               <span className="text-sm font-semibold tracking-wide text-white">Card Manager</span>
             </Link>

@@ -18,7 +18,7 @@ export default function Footer() {
   }, []);
 
   const footerLinks = [
-    { label: "Inicio", href: `/indice/${username}` },
+    { label: "Inicio", href: `/dashboard/${username}` },
     { label: "Colecciones", href: `/colecciones/${username}` },
     { label: "Cartas", href: `/cartas/${username}` },
   ];
