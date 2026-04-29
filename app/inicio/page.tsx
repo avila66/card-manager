@@ -38,7 +38,7 @@ export default function InicioPage() {
       <section className="relative overflow-hidden px-4 py-24 text-center">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/inicio/pokemonbaner.jpg"
+            src="/images/inicio/bannerinicial.jpg"
             alt="Fondo"
             fill
             className="object-cover opacity-50"

@@ -1,7 +1,5 @@
 import supabase from '@/utils/supabase';
 
-
-//const pilla el tipo de variable de la 
 export async function POST(req) {
   const { email, password } = await req.json();
 
@@ -14,5 +12,15 @@ export async function POST(req) {
     return Response.json({ mensaje: error.message }, { status: 400 });
   }
 
-  return Response.json({ mensaje: 'OK', user: data.user });
+  const { data: usuario, error: dbError } = await supabase
+    .from('usuario')
+    .select('nombre_usuario')
+    .eq('id_usuario', data.user.id)
+    .single();
+
+  if (dbError) {
+    return Response.json({ mensaje: dbError.message }, { status: 400 });
+  }
+
+  return Response.json({ mensaje: 'OK', user: data.user, nombre_usuario: usuario.nombre_usuario });
 }

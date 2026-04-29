@@ -3,19 +3,25 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-const footerLinks = [
-  { label: "Inicio", href: "/indice" },
-  { label: "Colecciones", href: "/colecciones" },
-  { label: "Cartas", href: "/cartas" },
-];
+import { useState, useEffect } from "react";
 
 const hiddenRoutes = ["/login", "/register", "/inicio"];
 
 export default function Footer() {
   const pathname = usePathname();
+  const [username, setUsername] = useState('');
+  const isAuthPage = hiddenRoutes.includes(pathname);
 
-  if (hiddenRoutes.includes(pathname)) return null;
+  useEffect(() => {
+    const stored = localStorage.getItem('username');
+    if (stored) setUsername(stored);
+  }, []);
+
+  const footerLinks = [
+    { label: "Inicio", href: `/indice/${username}` },
+    { label: "Colecciones", href: `/colecciones/${username}` },
+    { label: "Cartas", href: `/cartas/${username}` },
+  ];
 
   return (
     <footer className="flex w-full flex-col items-center justify-around border-t border-white/10 bg-[#0b0b0b] py-16 text-sm text-gray-400">
@@ -24,13 +30,15 @@ export default function Footer() {
         <span className="text-base font-semibold text-white">Card Manager</span>
       </Link>
 
-      <div className="mt-8 flex flex-wrap items-center justify-center gap-6 sm:gap-8">
-        {footerLinks.map((item) => (
-          <Link key={item.href} href={item.href} className="font-medium text-gray-400 transition-all hover:text-white">
-            {item.label}
-          </Link>
-        ))}
-      </div>
+      {!isAuthPage && (
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-6 sm:gap-8">
+          {footerLinks.map((item) => (
+            <Link key={item.href} href={item.href} className="font-medium text-gray-400 transition-all hover:text-white">
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      )}
 
       <div className="mt-8 flex items-center gap-4 text-gray-400">
         <a href="#" aria-label="Facebook" className="transition-all duration-300 hover:-translate-y-0.5">
