@@ -1,68 +1,88 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import { useEffect, useState, useParams } from 'react';
+import { useParams as useNextParams, useRouter } from 'next/navigation';
+import Link from 'next/link';
+
+export default function DashboardPage() {
+  const params = useNextParams();
+  const router = useRouter();
+  const username = params.username as string;
+  const [totalCartas, setTotalCartas] = useState<number | null>(null);
+  const [ultimaCarta, setUltimaCarta] = useState<string | null>(null);
+
+  useEffect(() => {
+    document.title = `Dashboard | Card Manager`;
+    async function fetchStats() {
+      try {
+        const res = await fetch('/api/cartas');
+        const data = await res.json();
+        if (data.cartas) {
+          setTotalCartas(data.cartas.length);
+          if (data.cartas.length > 0) {
+            const ultima = data.cartas[data.cartas.length - 1];
+            const nombre = ultima.pokemon?.pokemon || ultima.futbol?.jugador || 'Carta';
+            setUltimaCarta(nombre);
+          }
+        }
+      } catch {}
+    }
+    fetchStats();
+  }, []);
+
   return (
-    <div className="relative min-h-screen overflow-hidden bg-zinc-900 text-zinc-100">
-      <div className="pointer-events-none absolute inset-0 opacity-70">
-        <div className="absolute -top-16 right-1/3 h-72 w-72 rounded-full bg-white/5 blur-3xl" />
-        <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-white/4 blur-3xl" />
-        <div className="absolute inset-0 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.06),transparent_35%),radial-gradient(circle_at_80%_10%,rgba(255,255,255,0.04),transparent_35%),radial-gradient(circle_at_50%_80%,rgba(255,255,255,0.05),transparent_40%)]" />
-      </div>
+    <div className="min-h-screen text-white px-4 pt-8 pb-12 sm:px-6 lg:px-10" style={{ background: '#0d0f18' }}>
+      <div className="fixed inset-0 z-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
 
-      <main className="relative mx-auto grid min-h-screen w-full max-w-[1300px] grid-cols-1 gap-4 px-4 py-4 lg:grid-cols-[280px_minmax(0,1fr)] lg:px-6 lg:py-6">
-        <aside className="rounded-3xl border border-zinc-700 bg-zinc-950/95 p-5 shadow-[0_25px_70px_-50px_rgba(255,255,255,0.12)] backdrop-blur">
-          <div className="mb-8 flex items-center gap-3">
-            <Image
-              src="/CMLogo.jpg"
-              alt="Card Manager"
-              width={54}
-              height={54}
-              priority
-              className="rounded-xl border border-zinc-600"
-            />
-            <div>
-              <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-400">Card Manager</p>
-              <h1 className="font-[family-name:var(--font-geist-mono)] text-lg font-bold text-white">
-                Panel de control
-              </h1>
-            </div>
-          </div>
+      <div className="relative z-10 mx-auto max-w-7xl">
+        {/* Header */}
+        <div className="mb-10">
+          <span className="text-xs font-bold tracking-widest uppercase block mb-3" style={{ color: '#60a5fa' }}>Panel de control</span>
+          <h1 className="text-3xl md:text-4xl font-black mb-2" style={{ fontFamily: "'Orbitron', monospace", color: '#f1f5f9' }}>
+            Bienvenido, <span style={{ color: '#60a5fa' }}>{username}</span>
+          </h1>
+          <p className="text-sm" style={{ color: '#475569' }}>Gestiona tu colección de cartas desde aquí</p>
+        </div>
 
-          <nav className="space-y-2 text-sm">
-            <button className="w-full rounded-2xl border border-zinc-500 bg-zinc-900 px-3 py-2 text-left text-sm font-semibold text-zinc-100 shadow-[0_10px_26px_-14px_rgba(255,255,255,0.18)] transition duration-200 hover:-translate-y-0.5 hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500/70">
-              Inicio
-            </button>
-            <button className="w-full rounded-2xl border border-zinc-700 bg-zinc-900 px-3 py-2 text-left text-sm font-semibold text-zinc-200 transition duration-200 hover:-translate-y-0.5 hover:border-zinc-500 hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500/70">
-              Añadir carta
-            </button>
-            <button className="w-full rounded-2xl border border-zinc-700 bg-zinc-900 px-3 py-2 text-left text-sm font-semibold text-zinc-200 transition duration-200 hover:-translate-y-0.5 hover:border-zinc-500 hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500/70">
-              Eliminar carta
-            </button>
-          </nav>
-
-          <div className="mt-8 rounded-2xl border border-zinc-700 bg-zinc-900 p-4">
-            <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Total cartas</p>
-            <p className="mt-2 font-[family-name:var(--font-geist-mono)] text-4xl font-bold text-white">0</p>
-          </div>
-
-          <div className="mt-4 rounded-2xl border border-zinc-700 bg-zinc-900 p-4">
-            <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Última carta añadida</p>
-            <p className="mt-2 font-[family-name:var(--font-geist-mono)] text-4xl font-bold text-white">N/A</p>
-          </div>
-
-        </aside>
-
-        <section className="space-y-4">
-          <div className="rounded-3xl border border-zinc-700 bg-zinc-950/95 p-5">
-            <h3 className="font-[family-name:var(--font-geist-mono)] text-lg font-bold text-white">
-              Bienvenido a Card Manager!
-            </h3>
-            <p className="mt-2 text-sm text-zinc-300">
-              Con Card Manager, puedes registrar tus colecciones y cartas de una forma cómoda y digital. Organiza tu inventario, controla cambios y mantente al día con tus sets favoritos. ¡Empieza a construir tu colección hoy mismo! Puedes empezar a navegar con la barra de navegación en la parte superior, o usar los botones rapidos para añadir o eliminar cartas.
+        {/* Stats */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-10">
+          <div className="rounded-2xl p-6" style={{ background: '#161926', border: '1px solid rgba(255,255,255,0.07)' }}>
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#475569' }}>Total cartas</p>
+            <p className="text-5xl font-black" style={{ fontFamily: "'Orbitron', monospace", color: '#f1f5f9' }}>
+              {totalCartas === null ? '—' : totalCartas}
             </p>
           </div>
-        </section>
-      </main>
+          <div className="rounded-2xl p-6" style={{ background: '#161926', border: '1px solid rgba(255,255,255,0.07)' }}>
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#475569' }}>Última carta añadida</p>
+            <p className="text-2xl font-black truncate" style={{ fontFamily: "'Orbitron', monospace", color: '#f1f5f9' }}>
+              {ultimaCarta || 'N/A'}
+            </p>
+          </div>
+        </div>
+
+        {/* Accesos rápidos */}
+        <div className="rounded-2xl p-6 mb-10" style={{ background: '#161926', border: '1px solid rgba(255,255,255,0.07)' }}>
+          <h3 className="text-sm font-bold uppercase tracking-widest mb-5" style={{ fontFamily: "'Orbitron', monospace", color: '#94a3b8' }}>Accesos rápidos</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <Link href={`/cartas/${username}`} className="flex items-center gap-3 rounded-xl px-5 py-4 text-sm font-semibold transition-all hover:scale-[1.02]" style={{ background: 'rgba(0,180,255,0.06)', border: '1px solid rgba(0,180,255,0.15)', color: '#7ec8e3' }}>
+              🃏 Ver mis cartas
+            </Link>
+            <Link href={`/colecciones/${username}`} className="flex items-center gap-3 rounded-xl px-5 py-4 text-sm font-semibold transition-all hover:scale-[1.02]" style={{ background: 'rgba(0,180,255,0.06)', border: '1px solid rgba(0,180,255,0.15)', color: '#7ec8e3' }}>
+              📚 Ver mis colecciones
+            </Link>
+          </div>
+        </div>
+
+        {/* Bienvenida */}
+        <div className="rounded-2xl p-6" style={{ background: '#161926', border: '1px solid rgba(255,255,255,0.07)' }}>
+          <h3 className="text-sm font-bold uppercase tracking-widest mb-3" style={{ fontFamily: "'Orbitron', monospace", color: '#94a3b8' }}>¡Bienvenido a Card Manager!</h3>
+          <p className="text-sm leading-relaxed" style={{ color: '#475569' }}>
+            Con Card Manager puedes registrar tus colecciones y cartas de una forma cómoda y digital. Organiza tu inventario, controla cambios y mantente al día con tus sets favoritos. Puedes navegar usando la barra de navegación superior.
+          </p>
+        </div>
+      </div>
+
+      <style jsx global>{`@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap');`}</style>
     </div>
   );
 }

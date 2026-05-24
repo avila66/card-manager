@@ -1,0 +1,3 @@
+{"created_at_ms":1779586381151,"model":"openai/qwen2.5-vl-7b","session_id":"session-1779586381152-2","type":"session_meta","updated_at_ms":1779586381151,"version":1,"workspace_root":"C:\\Users\\Usuario\\card-manager"}
+{"text":"usa el mcp de supabase para mostrarme los usuarios de la tabla usuario","timestamp_ms":1779586402216,"type":"prompt_history"}
+{"message":{"blocks":[{"text":"usa el mcp de supabase para mostrarme los usuarios de la tabla usuario","type":"text"}],"role":"user"},"type":"message"}

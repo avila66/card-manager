@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Roboto } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
-const roboto = Roboto({
-  variable: "--font-roboto",
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
 });
 
 const geistMono = Geist_Mono({
@@ -27,12 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${roboto.variable} ${geistMono.variable} font-[family-name:var(--font-roboto)] antialiased`}
-      >
-        <div className="flex min-h-screen flex-col bg-[#0b0b0b] text-[#eafaff]">
+      <body className={`${geist.variable} ${geistMono.variable} font-[family-name:var(--font-geist)] antialiased`}>
+        <div className="flex min-h-screen flex-col bg-[#0d0f18] text-[#eafaff]">
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 pt-16">{children}</main>
           <Footer />
         </div>
       </body>

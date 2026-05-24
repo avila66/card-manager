@@ -1,0 +1,17 @@
+{
+  "env": {
+    "ANTHROPIC_BASE_URL": "http://127.0.0.1:1234/v1",
+    "ANTHROPIC_API_KEY": "lm-studio"
+  },
+  "mcpServers": {
+    "server": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@supabase/mcp-server-supabase@latest",
+        "--access-token",
+        "TU_PERSONAL_ACCESS_TOKEN"
+      ]
+    }
+  }
+}

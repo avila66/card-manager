@@ -1,0 +1,3 @@
+{"created_at_ms":1779585329952,"model":"claude-opus-4-6","session_id":"session-1779585329953-0","type":"session_meta","updated_at_ms":1779585329952,"version":1,"workspace_root":"C:\\Users\\Usuario\\card-manager"}
+{"text":"muéstrame los usuarios que hay en la tabla usuario de mi base de datos de supabase","timestamp_ms":1779585333110,"type":"prompt_history"}
+{"message":{"blocks":[{"text":"muéstrame los usuarios que hay en la tabla usuario de mi base de datos de supabase","type":"text"}],"role":"user"},"type":"message"}
